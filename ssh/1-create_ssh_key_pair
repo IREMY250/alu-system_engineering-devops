@@ -1,13 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# This script generates an RSA key pair for SSH authentication, saves it as 'school', and protects it with the passphrase 'betty'.
 
 # Define the key name and passphrase
 KEY_NAME="school"
 PASSPHRASE="betty"
 
-# Generate the RSA key pair with 4096 bits
+# Generate the RSA key pair with 4096 bits and protect it with the passphrase
 echo -e "$PASSPHRASE\n$PASSPHRASE" | ssh-keygen -t rsa -b 4096 -f "$KEY_NAME" -N "$PASSPHRASE"
 
-# Display the results
+# Display the result
 echo "RSA key pair generated:"
 echo "Private key: $KEY_NAME"
 echo "Public key: $KEY_NAME.pub"
